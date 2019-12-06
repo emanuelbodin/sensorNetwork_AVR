@@ -52,6 +52,7 @@ int main(void) {
               int id = 2;
               char src [20];
               char str[10];
+              value = sensorMeasurement();
               sprintf(str, "%d", value);
               strcpy(src,  str);
               strcat(src, " ");
@@ -78,6 +79,10 @@ void blink(void) {
     _delay_ms(100);
   }
   PORTD &= ~(1 << 7);
+}
+
+int sensorMeasurement() {
+  return 111;
 }
 
 nRF24L01 *setup_rf(void) {
