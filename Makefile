@@ -4,7 +4,7 @@ CC=avr-gcc
 OBJCOPY=avr-objcopy
 CFLAGS=-std=c99 -Wall -g -Os -mmcu=${MCU} -I .
 TARGET=main
-SRCS=sensorNetwork.c  /Users/emanuelbodin/Documents/AVR/sensorNetwork/nrf24l01.c /Users/emanuelbodin/Documents/AVR/sensorNetwork/nokia5110.c
+SRCS=sensorNetworkSound.c  /Users/emanuelbodin/Documents/AVR/sensorNetwork/nrf24l01.c /Users/emanuelbodin/Documents/AVR/sensorNetwork/nokia5110.c
 
 all:
 	${CC} ${CFLAGS} -o ${TARGET}.bin ${SRCS}

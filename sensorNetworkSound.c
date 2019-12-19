@@ -29,7 +29,7 @@ int sensorMeasurement(void);
 int main(void) {
 
   initADC0();
-  uint8_t to_address[5] = { 0x01, 0x01, 0x01, 0x01, 0x01 };
+  uint8_t to_address[5] = { 0x03, 0x01, 0x01, 0x01, 0x01 };
   bool on = false;
   sei();
   nRF24L01 *rf = setup_rf();
@@ -62,9 +62,6 @@ int main(void) {
           on = !on;
           nRF24L01Message msg;
           if (bit_is_clear(PINB, PB0)) {
-            LCD_scroll(8);
-            LCD_print(0,40,"hej",0);
-            LCD_update();
             blink();
             memcpy(msg.data, "hej", 3);
           } 
@@ -72,10 +69,10 @@ int main(void) {
             LCD_scroll(8);
             LCD_print(0,40,"Sending",0);
             LCD_update();
-            int id = 2;
+            int id = 4;
             char src [20];
             char str[10];
-            int value = sensorMeasurement();
+            int value = sensorMeasurement();;
             sprintf(str, "%d", value);
             strcpy(src,  str);
             strcat(src, " ");
